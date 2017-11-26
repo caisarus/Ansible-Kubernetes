@@ -81,6 +81,7 @@
     path: /etc/kubernetes/apiserver
     state: absent
     regexp: 'KUBE_ADMISSION_CONTROL'
+# This does not work for now. Needs looking into
 #  notify: 
 #    - enable kube-apiserver
 #    - enable kube-controller-manager
@@ -93,7 +94,3 @@
 - name: enable kubernetes
   raw: systemctl enable etcd kube-apiserver kube-controller-manager kube-scheduler && systemctl start etcd kube-apiserver kube-controller-manager kube-scheduler
 
-
-#- name: install kubernetes master
- # script: kubernetes_master.sh
-  #tags: [ 'kubernetes install all', 'kubernetes install master' ]

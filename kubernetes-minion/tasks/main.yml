@@ -75,7 +75,4 @@
   notify:
     - start kubelet
     - start docker
-#    - restart kubelet
-#    - restart docker
   tags: [ 'kubernetes install all', 'kubernetes install minion', 'test' ]
-
