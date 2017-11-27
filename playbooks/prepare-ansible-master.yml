@@ -9,6 +9,7 @@
         dest: /etc/hosts
         line: '{{ item.ip }}    {{ item.hostname }}'
       with_items: '{{ hosts }}'
+      become: true
 
     - name: Create ssh keys
       raw: cat /dev/zero | ssh-keygen -q -N "" && touch /home/ansible/.ssh/config
