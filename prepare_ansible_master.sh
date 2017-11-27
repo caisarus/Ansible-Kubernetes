@@ -25,8 +25,7 @@ echo "Copied everything to ansible workspace (/home/ansible/workspace)"
 
 
 echo "Switching over to ansible user"
-su - ansible
 echo "Use cd /home/ansible/workspace"
-
 echo "Preparation for ansible use is finished \
 Please use one touch script to set up the cluster"
+su - ansible
