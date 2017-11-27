@@ -1,3 +1,4 @@
+#Kubernetes master must be the first one in the list always!
 hosts:
   - ip: 192.168.0.99
     alias: master
