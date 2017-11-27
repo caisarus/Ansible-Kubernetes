@@ -91,6 +91,12 @@
 #    - restart kube-scheduler
 #  tags: [ 'kubernetes install all', 'kubernetes install master']
 
+- name: Disable firewalld
+  service:
+    name: firewalld
+    state: stopped
+    enabled: False
+
 - name: enable kubernetes
   raw: systemctl enable etcd kube-apiserver kube-controller-manager kube-scheduler && systemctl start etcd kube-apiserver kube-controller-manager kube-scheduler
 
