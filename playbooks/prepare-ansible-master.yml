@@ -2,10 +2,6 @@
 #Add entries to host file using group_vars file
 - hosts: controller
   gather_facts: False   #as python may not be installed then we don't want to gather facts as this is done using python
-  remote_user: root     #user with which to login into system
-  become: yes           #if user is not root the we need to become root
-  become_user: root
-  become_method: sudo
 
   tasks:
     - name: Add entries to hosts file
@@ -14,3 +10,20 @@
         line: '{{ item.ip }}    {{ item.hostname }}'
       with_items: '{{ hosts }}'
 
+    - name: Create ssh keys
+      raw: cat /dev/zero | ssh-keygen -q -N "" && touch /home/ansible/.ssh/config
+
+
+    - name: Disable strict host key checking
+      lineinfile:
+        dest: /home/ansible/.ssh/config
+        line: '{{ item }}'
+      with_items:
+        - ' Host * '
+        - '        StrictHostKeyChecking no'
+
+
+    - name: Set permision for ssh config
+      file:
+        path: /home/ansible/.ssh/config
+        mode: 0400
