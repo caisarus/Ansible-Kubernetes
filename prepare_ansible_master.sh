@@ -9,7 +9,7 @@ echo "Installed ansible"
 
 #Create ansible user and give ansible sudo access
 sudo useradd ansible
-sudo mkdir /home/ansible
+#sudo mkdir /home/ansible
 sudo chown ansible:ansible /home/ansible
 sudo echo "ansible ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 echo "Added ansible user"
@@ -21,7 +21,7 @@ then
         echo "Please verify that ansible user exists and folder not already created"
         exit
 fi
-echo "Copied everythin to ansible workspace (/home/ansible/workspace)"
+echo "Copied everything to ansible workspace (/home/ansible/workspace)"
 
 
 echo "Switching over to ansible user"
