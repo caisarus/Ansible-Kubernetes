@@ -15,7 +15,7 @@ sudo echo "ansible ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 echo "Added ansible user"
 
 #Copy everything to ansible's user home directory
-cp -r * /home/ansible/workspace && chown -R ansible:ansible /home/ansible/*
+mkdir /home/ansible/workspace/ && cp -r * /home/ansible/workspace/ && chown -R ansible:ansible /home/ansible/*
 if [ $? != 0 ]
 then
         echo "Please verify that ansible user exists and folder not already created"
