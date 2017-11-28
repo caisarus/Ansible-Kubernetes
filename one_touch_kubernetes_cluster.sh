@@ -14,4 +14,4 @@ echo "Starting kubernetes deployment"
 ansible-playbook kubernetes.yml
 
 echo "After running this script you will need to run only "ansible-playbook kubernetes.yml" as the cluster is already set up"
-echo "Run ansible -a "kubectl get nodes" kubernetes-master to check if cluster is up"
+echo "Run ansible -a \"kubectl get nodes\" kubernetes-master to check if cluster is up"
