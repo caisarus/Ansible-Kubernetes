@@ -77,11 +77,11 @@
 #    - start docker
   tags: [ 'kubernetes install all', 'kubernetes install minion', 'test' ]
   
-  - name: Disable firewalld
-    service:
-      name: firewalld
-      state: stopped
-      enabled: False
+ - name: Disable firewalld
+   service:
+     name: firewalld
+     state: stopped
+     enabled: False
 
 - name: enable kubernetes
   raw: systemctl enable kube-proxy kubelet docker && systemctl start kube-proxy kubelet docker
