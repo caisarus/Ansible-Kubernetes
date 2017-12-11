@@ -12,7 +12,7 @@
       become: true
 
     - name: Create ssh keys
-      raw: cat /dev/zero | ssh-keygen -q -N "" && touch /home/ansible/.ssh/config
+      raw: test -e ~/.ssh/id_rsa || (cat /dev/zero | ssh-keygen -q -N "" && touch /home/ansible/.ssh/config)
 
 
     - name: Disable strict host key checking
